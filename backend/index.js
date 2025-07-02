@@ -2,6 +2,7 @@ require("dotenv").config();
 const express = require("express");
 const connectToMongo = require("./dbConnection");
 const cors = require("cors");
+const  petRoutes = require ('./routes/suggestionRoutes.js');
 
 const app = express();
 
@@ -11,7 +12,10 @@ app.use(express.json());
 app.get("/", (req, res) => {
   res.send("API is running...");
 });
-//ashish is contributing now
+
+app.use('/api', petRoutes);
+
+
 connectToMongo();
 
 app.listen(5000, () => {
