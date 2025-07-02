@@ -43,10 +43,12 @@ app.get("/", (req, res) => {
   res.send("API is running...");
 });
 
+app.use('/api', petRoutes);
+app.use("/api/pet", require("./routes/pet_routes"));
+app.use("/api/images", require("./routes/uploadRoutes"));
 
 app.use('/api/pets', petRoutes);
 
-//Product routes
 app.use('/products', productRouter);
 
 
