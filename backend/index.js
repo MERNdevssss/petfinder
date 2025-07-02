@@ -7,8 +7,6 @@ const petRouter=require('./routes/petRouter.js');
 const cookieParser = require("cookie-parser");
 const filterRouter=require('./routes/filterRouter.js');
 const connectToMongo = require("./dbConnection");
-
-
 const  petRoutes = require ('./routes/suggestionRoutes.js');
 
 
