@@ -14,7 +14,8 @@ app.get("/", (req, res) => {
 });
 
 app.use('/api', petRoutes);
-
+app.use("/api/pet", require("./routes/pet_routes"));
+app.use("/api/images", require("./routes/uploadRoutes"));
 
 connectToMongo();
 
