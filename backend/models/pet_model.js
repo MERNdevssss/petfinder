@@ -63,6 +63,10 @@ const petSchema = new mongoose.Schema({
     type: [String],
     default: [], // friendly , good with kids , trained
   },
+  seller:{
+        type:String,    //johndoe@example.com
+        required:true
+    }
 });
 
 module.exports = mongoose.model("Pet", petSchema);

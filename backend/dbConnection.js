@@ -7,7 +7,7 @@ const connectToMongo = () => {
       dbName: "PetFinder",
     })
     .then(() => {
-      console.log(`connected ${process.env.MONGO_URI}`);
+      console.log(`connected`);
     })
     .catch((err) => {
       console.error("Error connecting to MongoDB:", err);
