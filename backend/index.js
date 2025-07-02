@@ -6,12 +6,11 @@ const cookieParser = require('cookie-parser');
 const userRouter=require('./routes/userRouter.js');
 const adminRoutes = require("./routes/adminRouter.js");
 const petRouter=require('./routes/petRouter.js');
-const cookieParser = require("cookie-parser");
 const filterRouter=require('./routes/filterRouter.js');
 const connectToMongo = require("./dbConnection");
 
 const  petRoutes = require ('./routes/suggestionRoutes.js');
-const productRouter  = require('./src/features/pet_products/productsRouter.js');
+// const productRouter  = require('./src/features/pet_products/productsRouter.js');
 
 
 const app = express();
@@ -20,10 +19,6 @@ app.use(cors({
   origin: "*",
   credentials: true,
 }));
-
-
-
-
 
 app.use(cors());
 app.use(express.json());
@@ -43,11 +38,13 @@ app.get("/", (req, res) => {
   res.send("API is running...");
 });
 
+app.use('/api', petRoutes);
+app.use("/api/pet", require("./routes/pet_routes"));
+app.use("/api/images", require("./routes/uploadRoutes"));
 
 app.use('/api/pets', petRoutes);
 
-//Product routes
-app.use('/products', productRouter);
+// app.use('/products', productRouter);
 
 
 connectToMongo();

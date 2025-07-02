@@ -1,5 +1,5 @@
 const UserModel = require("../models/UserModel.js");
-const PetModel = require("../models/PetModel.js");
+const PetModel = require("../models/pet_model");
 
 async function handleUserByAdmin(req, res) {
   try {

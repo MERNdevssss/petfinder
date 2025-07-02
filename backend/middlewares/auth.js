@@ -1,4 +1,4 @@
-const { getUser } = require("../service/auth.js");
+const { getUser } = require("../services/auth.js");
 
 function restrictToLoggedInUserOnly(req, res, next) {
   const token = req.cookies?.uid;
