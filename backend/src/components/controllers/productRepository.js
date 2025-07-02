@@ -1,4 +1,4 @@
-const { productModel } = require('./productSchema.js');
+const { productModel } = require('../pet_products/productSchema.js');
 
 const createProduct = async (data) => {
   try {
