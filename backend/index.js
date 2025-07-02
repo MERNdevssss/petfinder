@@ -8,6 +8,10 @@ const cookieParser = require("cookie-parser");
 const filterRouter=require('./routes/filterRouter.js');
 const connectToMongo = require("./dbConnection");
 
+
+const  petRoutes = require ('./routes/suggestionRoutes.js');
+
+
 const app = express();
 
 app.use(cors({
@@ -18,7 +22,14 @@ app.use(cors({
 app.get("/", (req, res) => {
   res.send("API is running...");
 });
-//ashish is contributing now
+
+
+
+
+app.use('/api', petRoutes);
+
+
+
 connectToMongo();
 
 app.use(express.json());
