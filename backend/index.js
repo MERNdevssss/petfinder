@@ -11,7 +11,7 @@ app.use(express.json());
 app.get("/", (req, res) => {
   res.send("API is running...");
 });
-
+//ashish is contributing now
 connectToMongo();
 
 app.listen(5000, () => {
