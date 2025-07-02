@@ -1,13 +1,17 @@
 require("dotenv").config();
 const express=require('express');
 const cors=require('cors');
+const cookieParser = require('cookie-parser');
+
 const userRouter=require('./routes/userRouter.js');
 const adminRoutes = require("./routes/adminRouter.js");
 const petRouter=require('./routes/petRouter.js');
 const cookieParser = require("cookie-parser");
 const filterRouter=require('./routes/filterRouter.js');
 const connectToMongo = require("./dbConnection");
+
 const  petRoutes = require ('./routes/suggestionRoutes.js');
+const productRouter  = require('./src/features/pet_products/productsRouter.js');
 
 
 const app = express();
@@ -17,22 +21,38 @@ app.use(cors({
   credentials: true,
 }));
 
+
+
+
+
+app.use(cors());
+app.use(express.json());
+app.use(cookieParser())
+app.use(express.urlencoded({extended:true}));
+
+const corsOrigin = {
+  origin: [process.env.CORS_ORIGIN, "http://localhost:5173"],
+  methods: ["GET", "POST", "PUT", "DELETE"],
+  credentials: true
+};
+
+app.use(cors(corsOrigin));
+
+
 app.get("/", (req, res) => {
   res.send("API is running...");
 });
 
 
-
-
 app.use('/api/pets', petRoutes);
 
+//Product routes
+app.use('/products', productRouter);
 
 
 connectToMongo();
 
-app.use(express.json());
-app.use(express.urlencoded({extended:true}));
-app.use(cookieParser());
+
 
 app.use('/',userRouter);
 app.use("/admin", adminRoutes);
