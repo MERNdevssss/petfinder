@@ -24,7 +24,7 @@ app.get("/", (req, res) => {
 
 
 
-app.use('/api', petRoutes);
+app.use('/api/pets', petRoutes);
 
 
 
