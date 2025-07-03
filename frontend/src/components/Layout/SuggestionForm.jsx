@@ -35,14 +35,14 @@ const SuggestionForm = () => {
       return { ...prev, petTypes: updated };
     });
   };
-
+// this is for image
   const fetchImages = async (keyword) => {
     try {
       const response = await fetch(
         `https://api.pexels.com/v1/search?query=${encodeURIComponent(keyword)}&per_page=1`,
         {
           headers: {
-            Authorization: "ERRQ4JwKCfNUTVRPSiH4jbAw1GGmoxWCRwdMZJzI5Kb0WMYCu76Z9Pwb", // Replace with your actual Pexels API key
+            Authorization: "ERRQ4JwKCfNUTVRPSiH4jbAw1GGmoxWCRwdMZJzI5Kb0WMYCu76Z9Pwb", 
           },
         }
       );
