@@ -11,8 +11,7 @@ const connectToMongo = require("./dbConnection");
 
 const  petRoutes = require ('./routes/suggestionRoutes.js');
 // const productRouter  = require('./src/features/pet_products/productsRouter.js');
-
-
+// this ia a single line comment 
 const app = express();
 
 app.use(cors({
@@ -38,7 +37,6 @@ app.get("/", (req, res) => {
   res.send("API is running...");
 });
 
-app.use('/api', petRoutes);
 app.use("/api/pet", require("./routes/pet_routes"));
 app.use("/api/images", require("./routes/uploadRoutes"));
 
