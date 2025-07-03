@@ -3,12 +3,12 @@ const express=require('express');
 const cors=require('cors');
 const cookieParser = require('cookie-parser');
 
-const userRouter=require('./routes/userRouter.js');
-const adminRoutes = require("./routes/adminRouter.js");
-const petRouter=require('./routes/petRouter.js');
-const filterRouter=require('./routes/filterRouter.js');
+// const userRouter=require('./routes/userRouter.js');
+// const adminRoutes = require("./routes/adminRouter.js");
+// const petRouter=require('./routes/petRouter.js');
+// const filterRouter=require('./routes/filterRouter.js');
 const connectToMongo = require("./dbConnection");
-
+const userRoutes=require('./routes/userRoutes/router.js');
 const  petRoutes = require ('./routes/suggestionRoutes.js');
 // const productRouter  = require('./src/features/pet_products/productsRouter.js');
 // this is a single line comment 
@@ -48,12 +48,14 @@ app.use('/api/pets', petRoutes);
 
 connectToMongo();
 
+app.use('/api/user',userRoutes);
+
+// app.use('/',userRouter);
+// app.use("/admin", adminRoutes);
+// app.use('/pets',petRouter);
+// app.use("/api", filterRouter);
 
 
-app.use('/',userRouter);
-app.use("/admin", adminRoutes);
-app.use('/pets',petRouter);
-app.use("/api", filterRouter);
 
 app.listen(5000, () => {
   console.log("Server is running on port 5000");

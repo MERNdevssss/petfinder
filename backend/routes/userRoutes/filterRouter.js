@@ -5,7 +5,7 @@ const {
   getSizes,
   getFoodTypes,
   getDistinctValues
-} = require("../controllers/filterController");
+} = require("../../controllers/filterController");
 
 router.get("/filters", getDistinctValues); // GET /api/filters
 router.get("/categories", getCategories);
