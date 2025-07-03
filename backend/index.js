@@ -10,9 +10,8 @@ const cookieParser = require('cookie-parser');
 const connectToMongo = require("./dbConnection");
 const userRoutes=require('./routes/userRoutes/router.js');
 const  petRoutes = require ('./routes/suggestionRoutes.js');
-// const productRouter  = require('./src/features/pet_products/productsRouter.js');
-// this is a single line comment 
-/* this is a multi line comment*/
+const productRouter  = require('./routes/productsRouter.js');
+
 const app = express();
 
 app.use(cors({
@@ -42,8 +41,7 @@ app.use("/api/pet", require("./routes/pet_routes"));
 app.use("/api/images", require("./routes/uploadRoutes"));
 
 app.use('/api/pets', petRoutes);
-
-// app.use('/products', productRouter);
+app.use('/products', productRouter);
 
 
 connectToMongo();
