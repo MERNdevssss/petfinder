@@ -12,6 +12,7 @@ const connectToMongo = require("./dbConnection");
 const  petRoutes = require ('./routes/suggestionRoutes.js');
 // const productRouter  = require('./src/features/pet_products/productsRouter.js');
 // this is a single line comment 
+/* this is a multi line comment*/
 const app = express();
 
 app.use(cors({
