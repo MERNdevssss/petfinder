@@ -5,7 +5,7 @@ const {
   getAllUsers,
   getAllPets,
   deleteUserByAdmin
-} = require("../controllers/adminController");
+} = require("../../controllers/adminController");
 
 const router = express.Router();
 
