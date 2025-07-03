@@ -6,11 +6,11 @@ const  Suggestion = require ('../models/Suggestion.js');
   const OPENROUTER_API_KEY = process.env.OPENROUTER_API_KEY;
 
   const userInput = `
-Personality: ${personality}
-Home size: ${homeSize}
-Diet: ${diet}
-Suggest suitable pets from: ${petTypes.join(", ")}.
-Include breed name and explanation.
+    Personality: ${personality}
+    Home size: ${homeSize}
+    Diet: ${diet}
+    Suggest suitable pets from: ${petTypes.join(", ")}.
+    Include breed name and explanation.
   `;
 
   try {
