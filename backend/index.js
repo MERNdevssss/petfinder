@@ -16,21 +16,13 @@ const app = express();
 
 app.use(cors({
   origin: "*",
-  credentials: true,
+  methods: ["GET", "POST", "PUT", "DELETE"],
+  credentials: true
 }));
 
-app.use(cors());
 app.use(express.json());
 app.use(cookieParser())
 app.use(express.urlencoded({extended:true}));
-
-const corsOrigin = {
-  origin: [process.env.CORS_ORIGIN, "http://localhost:5173"],
-  methods: ["GET", "POST", "PUT", "DELETE"],
-  credentials: true
-};
-
-app.use(cors(corsOrigin));
 
 
 app.get("/", (req, res) => {
