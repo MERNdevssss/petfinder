@@ -37,11 +37,11 @@ app.get("/", (req, res) => {
   res.send("API is running...");
 });
 
-app.use("/api/pet", require("./routes/pet_routes"));
-app.use("/api/images", require("./routes/uploadRoutes"));
+app.use("/api/pet", require("./routes/petRoutes/router.js"));
 
-app.use('/api/pets', petRoutes);
-app.use('/products', productRouter);
+
+app.use('/api/suggest-pet', require('./routes/suggestionRoutes.js'));
+app.use('/api/products', productRouter);
 
 
 connectToMongo();

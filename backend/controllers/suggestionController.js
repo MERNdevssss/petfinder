@@ -53,7 +53,7 @@ const  Suggestion = require ('../models/Suggestion.js');
     }
   } catch (error) {
     console.error('Error:', error);
-    res.status(500).json({ error: 'Something went wrong.' });
+    res.status(500).json({ error: 'Something went wrong.' , errorMessage: error.message });
   }
 };
 

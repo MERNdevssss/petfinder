@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const { upload } = require("../services/uploadService");
+const { upload } = require("../../services/uploadService");
 const {
   getAllPets,
   getPetById,
@@ -9,7 +9,7 @@ const {
   createMultiplePets,
   updatePet,
   deletePet
-} = require("../controllers/petController");
+} = require("../../controllers/petController");
 
 router.get("/", getAllPets);
 
@@ -25,6 +25,7 @@ router.post("/batch", createMultiplePets);
 router.put("/:id", upload.array("images", 5), updatePet);
 
 router.delete("/:id", deletePet);
+
 
 
 module.exports = router;
